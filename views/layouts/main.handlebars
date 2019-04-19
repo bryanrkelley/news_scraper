@@ -1,85 +1,79 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width">
-  {{!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"> --}}
-  
-  <title>HARVEST- Seasonal Recipes</title>
-  {{!-- <script src="https://code.jquery.com/jquery.js"></script> --}}
-	{{!-- <script src="/js/index.js"></script> --}}
+  <head>
+    <title>NYT Articles</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <!-- reset css-->
+    <link href="/assets/css/reset.css" type="text/css" rel="stylesheet" media="screen">
+    <!-- css -->            
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <link href="/assets/css/style.css" type="text/css" rel="stylesheet" media="screen">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <!-- Font Awesome Glyphicons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+        crossorigin="anonymous">
+  </head>
 
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-  
-  <!-- jQuery CDN-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <body>
 
-  <!-- Bootstrap CDN-->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
-  <!-- Chosen-JS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
-
-  <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
-
-  {{!-- Google Font --}}
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
-
-</head>
-
-<body>
-  <!-- Start Home Section -->
-  <div id="home">
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-md">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-        <span class="navbar-toggler-icon"><i class="fas fa-bars" style="color: #666666;"></i></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <a class="navbar-brand" href="/">
-          <img src="/img/harvest-logo.svg" width="50" height="50" class="d-inline-block" alt="">
-          harvest
-          </a>
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="/">home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/aboutus">about</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://github.com/uw-project-2/Project2"><i class="fab fa-github"></i></a>
-          </li>
+    <nav class="navbar navbar-inverse">
+      <div class = "container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">NYT Mongo Scraper</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="/saved">Saved Articles</a></li>
+          <li><a class="btn btn-danger scrape-new" href="/scrape">Scrape New Articles!</a></li>
         </ul>
       </div>
     </nav>
-    <!-- End Navigation -->
+
+    <div class="container-fluid text-center">
+      <div class="row">
+        <div class="col-sm-1"></div>
+
+        <div class="col-sm-10">
+            <div class="jumbotron">
+              <h1 class="display-4">NYT MongoScraper!</h1>
+
+              <p>See all recent NYT articles and search for more with the click of a button!</p>
+
+              <a class="btn btn-primary btn-lg" href="https://bryanrkelley.github.io/Basic-Portfolio/" role="button" target="_blank">Main Page</a>
+            </div>
+        </div>
+
+        <div class="col-sm-1"></div>
+      </div>
+
+      {{{body}}}
+
+    </div>
 
 
+    <footer class="footer">
+      <div class="container">
+        <p>Copyright 2019 - All rights reserved &copy;</p>
+      </div>
+    </footer>
 
-  {{{body}}}
 
+    <!-- Used for Bootstrap -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
 
-  <footer class="text-center">
-      <p>The Fearsome Foursome</p>
-      <p>University of Washington Full Stack Web Development Bootcamp: Project 2</p>
-      <p><a href="https://github.com/uw-project-2/Project2"><i class="fab fa-github"></i></a></p>
-  </footer>
-
-  {{!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> --}}
-
-  {{!-- <script src="https://code.jquery.com/jquery.js"></script> --}}
-	
-  
-  <script src="/js/index.js"></script>
-
-</body>
+  </body>
 
 </html>

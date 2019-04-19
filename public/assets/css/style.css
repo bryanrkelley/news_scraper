@@ -1,0 +1,95 @@
+/*Background*/
+/* .bg {
+    The image used
+    background-image: url("../images/Background.jpg");
+
+    Center and scale the image nicely
+    background-position: center;
+    background-repeat: repeat;
+    background
+
+    min-height: 100%;
+    min-width: 1024px;
+      
+    Set up proportionate scaling
+    width: 100%;
+    height: auto;
+      
+    Set up positioning
+    top: 0;
+    left: 0;
+} */
+
+.jumbotron {
+    margin-bottom: .5vh;
+    padding-bottom: 2vh;
+    padding-top: .5vh;
+}
+
+.panel {
+    /* position: center; */
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .25rem;
+    padding: 1rem;
+}
+
+#heading {
+    font-family: Times;
+    font-weight: bold;
+}
+
+.panel-title {
+    font-weight: bold;
+}
+
+th {
+    font-weight: bold;
+}
+
+.icon {
+    /* height: 100px; */
+    width: 200px;
+    /* object-fit: cover;  */
+}
+
+.row {
+    padding: 1vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.hide {
+    display: none;
+}
+
+footer {
+    background: #333333;
+    color: white;
+    text-align: right;
+    padding-right: 25px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    line-height: 35px;
+    flex-shrink: 0;
+}
+
+.buttons {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    /* padding: 1rem; */
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border-radius: .3rem;
+    margin: .1rem;
+}
