@@ -52,6 +52,13 @@ mongoose.connect(MONGODB_URI, {
 
 require("./config/routes")(app);
 
+var getArticles = function(res) {
+  db.Article.find({}).then((dbArticles) => {
+    res.json(dbArticles);
+  }).catch((err) => {
+    res.json(err);
+  });
+};
 
 // A GET route for scraping the NYT website
 app.get("/api/scrape", function (req, res) {
@@ -78,7 +85,7 @@ app.get("/api/scrape", function (req, res) {
       result.link = "https://www.nytimes.com" + $(this)
         .attr("href");
 
-        console.log(result);
+        console.log("This is the title: " + result.title);
 
       // Create a new Article using the `result` object built from scraping
       db.Article.create(result)
@@ -90,21 +97,17 @@ app.get("/api/scrape", function (req, res) {
           // If an error occurred, log it
           console.log(err);
         });
-    });
-
-    // Send a message to the client
-    res.send("Scrape Complete");
+      });
+      return (res);
+    }).then(function(res) {
+      getArticles(res);
   });
 });
 
 
 // Route for getting all Articles from the db
 app.get("/articles", function (req, res) {
-  db.Article.find({}).then((dbArticles) => {
-    res.json(dbArticles);
-  }).catch((err) => {
-    res.json(err);
-  });
+  getArticles(res);
 });
 
 // Route for grabbing a specific Article by id, populate it with it's note
