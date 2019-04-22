@@ -54,7 +54,7 @@ require("./config/routes")(app);
 
 
 // A GET route for scraping the NYT website
-app.get("/scrape", function (req, res) {
+app.get("/api/scrape", function (req, res) {
   // First, we grab the body of the html with axios
   axios.get("https://www.nytimes.com/").then(function (response) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
@@ -72,12 +72,13 @@ app.get("/scrape", function (req, res) {
         .children("div")
         .children("h2")
         .text();
-      // result.summary = $(this)
-      //   .children("div")
-      //   .children("p")
-      //   .text();
+      result.summary = $(this)
+        .children("p")
+        .text();
       result.link = "https://www.nytimes.com" + $(this)
         .attr("href");
+
+        console.log(result);
 
       // Create a new Article using the `result` object built from scraping
       db.Article.create(result)
@@ -137,6 +138,13 @@ app.post("/articles/:id", function (req, res) {
       });
   });
 });
+
+// Route for deleting an Article's associated Note
+app.delete("/articles/:id", function (req, res) {
+  db.Note.remove({
+    _id: req._id
+  }, res);
+})
 
 // Start the server
 app.listen(PORT, function () {

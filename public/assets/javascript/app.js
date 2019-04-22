@@ -1,12 +1,35 @@
 // Grab the articles as a json
+
 $.getJSON("/articles", function(data) {
   // For each one
   for (var i = 0; i < data.length; i++) {
+    console.log(data[i]);
     // Display the apropos information on the page
     $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].summary + "<br />" + "<a target='_blank' href='" + data[i].link + "'>Click Here</a></p>");
   }
 });
 
+$(document).on("click", ".scrape-new", function() {
+  $.getJSON("/api/scrape", function(data) {
+    console.log(data);
+    alert("Scrape Complete!");
+  });
+});
+
+//TODO: Fix the save route
+$(document).on("click", ".btn.save", function handleArticleSave() {
+  var articleToSave = $(this).parents(".panel").data();
+  articleToSave.saved = true;
+
+  $.ajax({
+    method: "PATCH",
+    url: "/api/articles",
+    data: articleToSave
+  })
+  .then(function(data) {
+    if (data.ok){}
+  })
+});
 
 // Whenever someone clicks a p tag
 $(document).on("click", "p", function() {
